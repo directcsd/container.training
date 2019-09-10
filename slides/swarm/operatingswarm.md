@@ -25,7 +25,7 @@ class: self-paced
 ## Catching up
 
 Assuming you have 5 nodes provided by
-[Play-With-Docker](http://www.play-with-docker/), do this from `node1`:
+[Play-With-Docker](https://www.play-with-docker/), do this from `node1`:
 
 ```bash
 docker swarm init --advertise-addr eth0
@@ -33,7 +33,7 @@ TOKEN=$(docker swarm join-token -q manager)
 for N in $(seq 2 5); do
   DOCKER_HOST=tcp://node$N:2375 docker swarm join --token $TOKEN node1:2377
 done
-git clone git://github.com/jpetazzo/container.training
+git clone https://@@GITREPO@@
 cd container.training/stacks
 docker stack deploy --compose-file registry.yml registry
 docker-compose -f dockercoins.yml build
